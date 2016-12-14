@@ -2,7 +2,7 @@ extends layout
 
 block styles
   link(rel='stylesheet', href='css/home.css')
-  link(rel='stylesheet', href='css/math1-trig.css')
+  link(rel='stylesheet', href='css/fake-circles.css')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
 
 block content
@@ -14,10 +14,38 @@ block content
   .ui.main.container
     .ui.equal.width.grid
       .column
-        h2.ui.header ¿Qué es un círculo falso?
+        h2.ui.header ¿Por qué explotó el Challenger?
+        .ui.horizontal.segments
+          .ui.orange.very.padded.segment
+            h3.ui.header Hubo problemas en comprobar que la base del booster fuera circular.
+          .ui.orange.segment
+            img.ui.image(src='img/fake-circles/booster.jpg')
+            br
+            img.ui.image(src='img/fake-circles/booster-people.jpg')
+      .column
+        h3.ui.centered.header ¿Qué ocurrió en el Challenger?
+        img.ui.centered.large.image(src='img/fake-circles/challenger-explosion.jpg')
+  .ui.main.container
+    .ui.styled.fluid.accordion
+      .title
+        h3.ui.header
+          i.rocket.icon
+          .content ¿Por qué se examina la forma del booster?
+      .content
         p Después de un despegue en el Centro Espacial Kennedy, pasan aproximadamente cinco minutos hasta que todo el combustible en los cohetes aceleradores (boosters) del transbordador espacial es usado. Los cohetes vacíos se sueltan y caen al oceáno Atlántico; son recuperados y reacondicionados. Después de llenarlos nuevamente con combustible, son examinados para asegurarse de que son "muy" redondos pues si no son suficientemente redondos pueden no ajustarse con precisión y permitir fugas de combustible.
+      .title
+        h3.ui.header
+          i.help.circle.icon
+          .content ¿Cómo comprobaba la NASA si el booster era redondo?
+      .content
         p En el tiempo de la tragedia del Challenger la prueba de redondez que aplicaba la NASA era la siguiente: Mida la mayor distancia (el "diámetro") a lo largo de la sección transversal en tres sitios diferentes. Si los tres diámetros son iguales, el cohete se declara redondo.
-        p ¿Qué piensa usted de esta prueba? ¿Cuantos diámetros iguales son necesarios para garantizar la redondez del booster?
+        .ui.info.message
+          p ¿Qué piensa usted de esta prueba? ¿Cuantos diámetros iguales son necesarios para garantizar la redondez del booster?
+      .title
+        h3.ui.header
+          i.circle.notched.icon
+          .content ¿Qué es un círculo falso?
+      .content
         p
           b Reto:
           |  Dado un número n, trate de dibujar una curva (con esquinas y lados rectos) con n diámetros iguales pero que no sea un círculo!
@@ -26,31 +54,43 @@ block content
           |  los diámetros y todos fueran iguales? ¿Tendría un círculo?
           i  Pues hay una cantidad infinita de curvas que tienen todos sus diámteros iguales pero que no son círculos; son
             b  falsos círculos!!
-      .column
-        h3.ui.centered.header ¿Qué ocurrió en el Challenger?
-        img.ui.centered.large.image(src='img/fake-circles/challenger-explosion.jpg')
-  .ui.main.container
-    h2 Construya un círculo falso
-    p
-      Dibuje tres segmentos de recta que formen un triángulo
-    img.ui.centered.image(src='img/fake-circles/img1.png')
-    p Elija uno de los vértices del triángulo como centro de un círculo y traze un arco entre los dos segmentos adyacentes a una distancia suficiente para que los arcos no intersecten el triángulo.
-    .ui.equal.width.grid
-      .column
-        .ui.piled.segment
-          img.ui.centered.image(src='img/fake-circles/img2.png')
-      .column
-        .ui.piled.segment
-          img.ui.centered.image(src='img/fake-circles/img3.png')
-      .column
-        .ui.piled.segment
-          img.ui.centered.image(src='img/fake-circles/img4.png')
+        h3 Construya un círculo falso
+        p Dibuje tres segmentos de recta que formen un triángulo
+        img.ui.centered.image(src='img/fake-circles/img1.png')
+        p Elija uno de los vértices del triángulo como centro de un círculo y traze un arco entre los dos segmentos adyacentes a una distancia suficiente para que los arcos no intersecten el triángulo.
+        .ui.equal.width.grid
+          .column
+            .ui.piled.segment
+              img.ui.centered.image(src='img/fake-circles/img2.png')
+          .column
+            .ui.piled.segment
+              img.ui.centered.image(src='img/fake-circles/img3.png')
+          .column
+            .ui.piled.segment
+              img.ui.centered.image(src='img/fake-circles/img4.png')
+      .title
+        h3.ui.header
+          i.wizard.icon
+          .content ¡Prueba!
+      .content
+        canvas#fake-circles-canvas
+        .ui.form
+          .field
+            label Número de líneas
+            select#numberOfSides
+              option(value='3') 3
+              option(value='5') 5
+              option(value='7') 7
+              option(value='9') 9
+              option(value='11') 11
+        button.ui.fluid.primary.button#eval(onclick='drawCircles()') Dibujar
 
   include footer
 
 block scripts
   script(src='js/delaunay.js')
   script(src='js/banner.js')
+  script(src='js/fake-circles.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js')
   script.
     $(() => {
