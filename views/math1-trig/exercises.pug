@@ -1,0 +1,107 @@
+.ui.vertical.segment
+  p Liste los valores de
+    span.math \text{ }\sin{\alpha}, \cos{\alpha}, \sin{\beta}, \cos{\beta}
+    |  para el siguiente triángulo.
+  img.ui.centered.image(src='img/trigonometry-intro/ex1.png')
+  .ui.styled.accordion
+    .title
+      i.dropdown.icon
+      |  Pistas
+    .content
+      p La hipotenusa es el lado de 9.7 unidades de largo. Utiliza las definiciones de las funciones trigonométricas basadas en sus lados.
+    .title
+      i.dropdown.icon
+      |  Solución
+    .content
+      p Para ambos ángulos, la hipotenusa es el lado de 9.7 unidades de largo.
+      p Para el ángulo
+        span.math \text{ }\alpha
+        |  el lado opuesto es el de 6.5 de largo, y el adyacente es el de 7.2.
+      p Para el ángulo
+        span.math \text{ }\beta
+        |  el lado opuesto es el de 7.2 de largo, y el adyacente es el de 6.5.
+      p Con esta información, podemos usar las definiciones de seno, coseno y tangente para hallar lo pedido:
+      .ui.relaxed.list
+        .item
+          span.math \sin{\alpha} = \frac{6.5}{9.7} \approx 0.670
+        .item
+          span.math \cos{\alpha} = \frac{7.2}{9.7} \approx 0.742
+        .item
+          span.math \sin{\beta} = \frac{7.2}{9.7} \approx 0.742
+        .item
+          span.math \sin{\alpha} = \frac{6.5}{9.7} \approx 0.670
+        .item
+          span.math \tan{\beta} = \frac{7.2}{6.5} \approx 1.108
+.ui.vertical.segment
+  p En el siguiente triángulo, encuentre el valor de
+    span.math \text{ } x
+  img.ui.centered.image(src='img/trigonometry-intro/ex2.png')
+  .ui.styled.accordion
+    .title
+      i.dropdown.icon
+      |  Pistas
+    .content
+      p Conoces el lado opuesto al ángulo y quieres la hipotenusa. Piensa cuál función trigonométrica relaciona estas medidas.
+    .title
+      i.dropdown.icon
+      |  Solución
+    .content
+      p Se conoce la medida del ángulo y el largo su lado opuesto, y se pide el largo de la hipotenusa (es decir,
+        span.math \text{ } x
+        |  ). La función trigonométrica que relaciona lado opuesto con hipotenusa es el seno, así que podemos convertir estos datos en una ecuación:
+      .math \sin(20^\circ) = \frac{65}{x}
+      .math x = \frac{65}{\sin(20^\circ)}
+      .math x \approx 190.047
+.ui.vertical.segment
+  p En el siguiente triángulo, encuentre el valor de
+    span.math \text{ } y
+  img.ui.centered.image(src='img/trigonometry-intro/ex3.png')
+  .ui.styled.accordion
+    .title
+      i.dropdown.icon
+      |  Pistas
+    .content
+      p Conoces el lado adyacente al ángulo y quieres el lado opuesto. Piensa cuál función trigonométrica relaciona estas medidas.
+    .title
+      i.dropdown.icon
+      |  Solución
+    .content
+      p Se conoce la medida del ángulo y el largo su lado adyacente, y se pide el largo del lado opuesto
+        span.math \text{ } y
+        |  . Como se debe relacionar el lado opuesto con el adyacente, podemos usar la función tangente y obtener una ecuación:
+      .math \tan(55.3^\circ) = \frac{y}{10}
+      .math y = 10 \tan(55.3^\circ)
+      .math y \approx 14.442
+.ui.vertical.segment
+  p Encuentre el largo de los lados
+    span.math \text{ }r \text{ y } s
+    |  indicados en la figura.
+  img.ui.centered.image(src='img/trigonometry-intro/ex4.png')
+  .ui.styled.accordion
+    .title
+      i.dropdown.icon
+      |  Pistas
+    .content
+      p Intenta ver este ejercicio como dos ejercicios similares a los anteriores. Una vez tengas la respuesta para un triángulo, úsala para hallar lo pedido.
+    .title
+      i.dropdown.icon
+      |  Solución
+    .content
+      p Nótese que para hallar el largo de la altura
+        span.math \text{ } r
+        |  se puede usar el ángulo de 30° y la base del triángulo (con 60 unidades de longitud). Para éste ángulo,
+        span.math \text{ } r
+        |  es el lado opuesto y la base es el lado adyacente, así que se usa la tangente del ángulo:
+      .math \tan(30^\circ) = \frac{r}{60}
+      .math r = 60 \tan(30^\circ) \approx 34.641
+      p Ahora que se tiene el valor de
+        span.math \text{ } r
+        |  , se puede usar junto con el ángulo de 55° para hallar el largo de la otra base
+        span.math \text{ } s
+        |  , notando de nuevo que se tiene el lado opuesto (
+        span.math \text{ } r
+        |  ) y el lado adyacente (
+        span.math \text{ } s
+        |  ) a este ángulo:
+      .math \tan(55^\circ) = \frac{r}{s}
+      .math s = \frac{r}{\tan(55^\circ)} \approx \frac{34.641}{\tan(55^\circ)}

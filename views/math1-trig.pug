@@ -1,0 +1,140 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href='css/home.css')
+  link(rel='stylesheet', href='css/math1-trig.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
+
+block content
+  .banner#banner
+    canvas#banner-canvas
+    h1 Introducción a la trigonometría
+    a.ui.tiny.button(href='/') Inicio
+
+  .ui.main.container
+    .ui.top.attached.tabular.menu
+      a.item.active(data-tab='first') Teoría
+      a.item(data-tab='second') Ejercicios
+      a.item(data-tab='third') Problemas
+      a.item(data-tab='fourth') Auto-evaluación
+
+    .ui.bottom.attached.tab.segment.active(data-tab='first')
+      include math1-trig/theory
+    .ui.bottom.attached.tab.segment(data-tab='second')
+      include math1-trig/exercises
+    .ui.bottom.attached.tab.segment(data-tab='third')
+      include math1-trig/problems
+    .ui.bottom.attached.tab.segment(data-tab='fourth')
+      include math1-trig/evaluation
+
+  include footer
+
+block scripts
+  script(src='js/delaunay.js')
+  script(src='js/banner.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js')
+  script.
+    $(() => {
+      $('.menu .item').tab();
+      $('.ui.accordion').accordion();
+      $('.ui.radio.checkbox').checkbox();
+      $('.math').each(function() {
+        const texTxt = $(this).text();
+        const el = $(this).get(0);
+        let addDisp = '';
+
+        if (el.tagName.toString() === 'DIV') {
+          addDisp = '\\displaystyle ';
+        }
+        try {
+          katex.render(addDisp + texTxt, el);
+        } catch (err) {
+          $(this).html(`<span class="err">${err}</span>`);
+        }
+      });
+    });
+  script.
+    function selfEvaluate() {
+      let a1 = $('input[name=q1]:checked').val();
+      let a2 = $('input[name=q2]:checked').val();
+      let a3 = $('input[name=q3]:checked').val();
+
+      let m = [];
+      let t = [];
+
+      switch (a1) {
+        case '1':
+          m.push('Asegúrate de estar buscando la tangente del ángulo');
+          t.push('negative');
+          break;
+        case '2':
+          m.push('Revisa las medidas de los lados');
+          t.push('negative');
+          break;
+        case '3':
+          m.push('¡Correcto!');
+          t.push('positive');
+          break;
+        case '4':
+          m.push('Asegúrate de estar buscando la tangente del ángulo');
+          t.push('negative');
+          break;
+        default:
+          m.push('Elije una respuesta');
+          t.push('negative');
+      }
+
+      switch (a2) {
+        case '1':
+          m.push('Asegúrate de estar usando la función trigonométrica correcta');
+          t.push('negative');
+          break;
+        case '2':
+          m.push('¡Correcto!');
+          t.push('positive');
+          break;
+        case '3':
+          m.push('Asegúrate de estar usando la función trigonométrica correcta');
+          t.push('negative');
+          break;
+        case '4':
+          m.push('Asegúrate de estar usando la función trigonométrica correcta');
+          t.push('negative');
+          break;
+        default:
+          m.push('Elije una respuesta');
+          t.push('negative');
+      }
+
+      switch (a3) {
+        case '1':
+          m.push('¡Correcto!');
+          t.push('positive');
+          break;
+        case '2':
+          m.push('Intenta realizar un bosquejo de la función');
+          t.push('negative');
+          break;
+        case '3':
+          m.push('Intenta realizar un bosquejo de la función');
+          t.push('negative');
+          break;
+        case '4':
+          m.push('Intenta realizar un bosquejo de la función');
+          t.push('negative');
+          break;
+        default:
+          m.push('Elije una respuesta');
+          t.push('negative');
+      }
+
+      for (let i = 0; i < 3; i++) {
+        $(`#m${i + 1}`).empty();
+        let container = document.getElementById(`m${i + 1}`);
+        let message = document.createElement('div');
+        message.className = `ui ${t[i]} message`;
+        let text = document.createTextNode(m[i]);
+        message.appendChild(text);
+        container.appendChild(message);
+      }
+    }

@@ -1,0 +1,38 @@
+{
+  "name": "math-utp",
+  "version": "1.0.0",
+  "description": "A web plataform for math content at UTP",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebasvega95/math-utp.git"
+  },
+  "author": "Juan Sebastián Vega Patiño <sebas060495@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebasvega95/math-utp/issues"
+  },
+  "homepage": "https://github.com/sebasvega95/math-utp#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.1",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.7.2",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-beta6",
+    "randomstring": "^1.1.5",
+    "serve-favicon": "^2.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.1",
+    "eslint-config-google": "^0.7.1"
+  }
+}

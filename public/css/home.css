@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  width: 100vw;
+  height: 40vh;
+  color: white;
+  padding: 20px 30px;
+}
+
+#banner-canvas {
+  width: 100vw;
+  height: 30vh;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+  background-color: #3949ab;
+}
+
+.ui.main {
+  padding-top: 1em;
+  padding-bottom: 2em;
+}
+
+.ui.vertical.footer {
+  padding: 2em;
+}

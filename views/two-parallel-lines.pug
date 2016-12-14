@@ -1,0 +1,63 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href='css/home.css')
+  link(rel='stylesheet', href='css/math1-trig.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
+
+block content
+  .banner#banner
+    canvas#banner-canvas
+    h1 Dos líneas paralelas
+    a.ui.tiny.button(href='/') Inicio
+
+  .ui.main.container
+    p Dadas dos líneas paralelas
+      span.math \text{ } l_1 \text{ y } l_2
+      |  y los puntos A y B entre ellas, ¿Cuál es la ruta más corta que inicia en A, toca a
+      span.math \text{ } l_1
+      |  , luego toca a
+      span.math \text{ } l_2
+      |  y termina en B?
+      img.ui.centered.image(src='img/two-lines/img1.png')
+  .ui.main.container
+    .ui.top.attached.tabular.menu
+      a.item.active(data-tab='first') Pista 1
+      a.item(data-tab='second') Pista 2
+      a.item(data-tab='third') Solución
+
+    .ui.bottom.attached.tab.segment.active(data-tab='first')
+      p ¿Ninguna idea? Sugerencia: pruebe con un caso más sencillo:
+      img.ui.centered.image(src='img/two-lines/img2.png')
+    .ui.bottom.attached.tab.segment(data-tab='second')
+      p ¿Todavía no? Una pista: Pruebe reflejando el punto con la recta.
+      img.ui.centered.image(src='img/two-lines/img3.png')
+    .ui.bottom.attached.tab.segment(data-tab='third')
+      p Bueno, la siguiente figura muestra la solución:
+      img.ui.centered.image(src='img/two-lines/img4.png')
+
+  include footer
+
+block scripts
+  script(src='js/delaunay.js')
+  script(src='js/banner.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js')
+  script.
+    $(() => {
+      $('.menu .item').tab();
+      $('.ui.accordion').accordion();
+      $('.math').each(function() {
+        const texTxt = $(this).text();
+        const el = $(this).get(0);
+        let addDisp = '';
+
+        if (el.tagName.toString() === 'DIV') {
+          addDisp = '\\displaystyle ';
+        }
+        try {
+          katex.render(addDisp + texTxt, el);
+        } catch (err) {
+          $(this).html(`<span class="err">${err}</span>`);
+        }
+      });
+    });

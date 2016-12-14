@@ -1,0 +1,73 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href='css/home.css')
+  link(rel='stylesheet', href='css/math1-trig.css')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css')
+
+block content
+  .banner#banner
+    canvas#banner-canvas
+    h1 ¡Cuidado con los círculos falsos!
+    a.ui.tiny.button(href='/') Inicio
+
+  .ui.main.container
+    .ui.equal.width.grid
+      .column
+        h2.ui.header ¿Qué es un círculo falso?
+        p Después de un despegue en el Centro Espacial Kennedy, pasan aproximadamente cinco minutos hasta que todo el combustible en los cohetes aceleradores (boosters) del transbordador espacial es usado. Los cohetes vacíos se sueltan y caen al oceáno Atlántico; son recuperados y reacondicionados. Después de llenarlos nuevamente con combustible, son examinados para asegurarse de que son "muy" redondos pues si no son suficientemente redondos pueden no ajustarse con precisión y permitir fugas de combustible.
+        p En el tiempo de la tragedia del Challenger la prueba de redondez que aplicaba la NASA era la siguiente: Mida la mayor distancia (el "diámetro") a lo largo de la sección transversal en tres sitios diferentes. Si los tres diámetros son iguales, el cohete se declara redondo.
+        p ¿Qué piensa usted de esta prueba? ¿Cuantos diámetros iguales son necesarios para garantizar la redondez del booster?
+        p
+          b Reto:
+          |  Dado un número n, trate de dibujar una curva (con esquinas y lados rectos) con n diámetros iguales pero que no sea un círculo!
+        p ¿Y si usted pudiera medir
+          b  todos
+          |  los diámetros y todos fueran iguales? ¿Tendría un círculo?
+          i  Pues hay una cantidad infinita de curvas que tienen todos sus diámteros iguales pero que no son círculos; son
+            b  falsos círculos!!
+      .column
+        h3.ui.centered.header ¿Qué ocurrió en el Challenger?
+        img.ui.centered.large.image(src='img/fake-circles/challenger-explosion.jpg')
+  .ui.main.container
+    h2 Construya un círculo falso
+    p
+      Dibuje tres segmentos de recta que formen un triángulo
+    img.ui.centered.image(src='img/fake-circles/img1.png')
+    p Elija uno de los vértices del triángulo como centro de un círculo y traze un arco entre los dos segmentos adyacentes a una distancia suficiente para que los arcos no intersecten el triángulo.
+    .ui.equal.width.grid
+      .column
+        .ui.piled.segment
+          img.ui.centered.image(src='img/fake-circles/img2.png')
+      .column
+        .ui.piled.segment
+          img.ui.centered.image(src='img/fake-circles/img3.png')
+      .column
+        .ui.piled.segment
+          img.ui.centered.image(src='img/fake-circles/img4.png')
+
+  include footer
+
+block scripts
+  script(src='js/delaunay.js')
+  script(src='js/banner.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js')
+  script.
+    $(() => {
+      $('.menu .item').tab();
+      $('.ui.accordion').accordion();
+      $('.math').each(function() {
+        const texTxt = $(this).text();
+        const el = $(this).get(0);
+        let addDisp = '';
+
+        if (el.tagName.toString() === 'DIV') {
+          addDisp = '\\displaystyle ';
+        }
+        try {
+          katex.render(addDisp + texTxt, el);
+        } catch (err) {
+          $(this).html(`<span class="err">${err}</span>`);
+        }
+      });
+    });

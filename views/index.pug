@@ -1,0 +1,51 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href='css/index.css')
+
+block content
+  canvas#background-canvas
+  .ui.top.fixed.menu
+    .item
+      img.ui.small.image(src='img/UTP-math.png')
+    if message.length > 0
+      .item
+        .ui.message
+          span
+            i.right.close.icon
+            = message
+    .right.item
+      form.ui.tiny.form(action='/login' method='post')
+        .fields
+          .field
+              input(name='email', placeholder='E-mail', type='text')
+          .field
+              input(name='password', placeholder='******', type='password')
+          button.ui.tiny.primary.submit.button(type='submit') Iniciar sesión
+  .ui.grid
+    .centered.middle.aligned.column
+      .ui.piled.segment
+        h1.ui.center.aligned.blue.header#header Abre una cuenta
+        h3.ui.center.aligned.blue.sub.header#sub-header para empezar a aprender
+        form.ui.form(action='/signup' method='post')
+          .field
+            .ui.left.icon.input
+              i.user.icon
+              input(name='email', placeholder='E-mail', type='text')
+          .field
+            .ui.left.icon.input
+              i.lock.icon
+              input(name='password', placeholder='******', type='password')
+          button.ui.fluid.positive.submit.button(type='submit') Registrar
+
+block scripts
+  script(src='js/background-canvas.js')
+  script.
+    $(() => {
+      $('.message .close').on('click', function() {
+        console.log($(this));
+        $(this).closest('.message').fadeOut(500, function() {
+          $(this).closest('.item').remove();
+          });
+      });
+    });

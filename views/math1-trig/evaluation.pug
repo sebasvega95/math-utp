@@ -1,0 +1,89 @@
+.ui.vertical.segment
+  p Dado el siguiente triángulo, si
+    span.math \text{ } \sin{\theta} = \frac{2}{\sqrt{13}}
+    |  , hallar
+    span.math \text{ } \tan{\theta}
+    img.ui.centered.image(src='img/trigonometry-intro/question1.png')
+  .ui.equal.width.grid
+    .column
+      .ui.form
+        .grouped.fields
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q1', value='1')
+              label
+                span.math 2 / 3
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q1', value='2')
+              label
+                span.math 1 / 2
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q1', value='3')
+              label
+                span.math 3 / 2
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q1', value='4')
+              label
+                span.math \sqrt{13} / 2
+    .middle.aligned.column#m1
+.ui.vertical.segment
+  p Un topógrafo está a 100 m de la base de un acantilado volado, y mide un ángulo de elevación de 28° desde su lugar hasta la parte superior del acantilado: Si el acantilado forma un ángulo de 65° con la horizontal, calcule su altura
+    span.math \text{ } h
+    |  .
+  .ui.equal.width.grid
+    .column
+      .ui.form
+        .grouped.fields
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q2', value='1')
+              label 12.3 m
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q2', value='2')
+              label 42.61 m
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q2', value='3')
+              label 78.9 m
+          .field
+            .ui.radio.checkbox
+              input(type='radio', name='q2', value='4')
+              label 40.0 m
+    .middle.aligned.column#m2
+.ui.vertical.segment
+  p Dada la gráfica de la función
+   span.math \text{ } y = \sin{(2x - \frac{\pi}{6})} + 1
+   |  , hallar los cortes con los ejes coordenados en el intervalo intervalo cerrado
+   span.math \text{ } [\frac{-2\pi}{3}, \frac{19\pi}{12}]
+   |  .
+  .ui.equal.width.grid
+    .column
+       .ui.form
+         .grouped.fields
+           .field
+             .ui.radio.checkbox
+               input(type='radio', name='q3', value='1')
+               label Corte en el eje coordenado y
+                span.math \text{ } (0, 1/2)
+           .field
+             .ui.radio.checkbox
+               input(type='radio', name='q3', value='2')
+               label Corte en el eje coordenado y
+                span.math \text{ } (0, 1)
+           .field
+             .ui.radio.checkbox
+               input(type='radio', name='q3', value='3')
+               label Corte en el eje coordenado y
+                span.math \text{ } (0, 1/3)
+           .field
+             .ui.radio.checkbox
+               input(type='radio', name='q3', value='4')
+               label Corte en el eje coordenado y
+                span.math \text{ } (0, 2)
+    .middle.aligned.column#m3
+.ui.main.container
+  button.ui.fluid.primary.button#eval(onclick='selfEvaluate()') Evaluar

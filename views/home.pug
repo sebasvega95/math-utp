@@ -1,0 +1,88 @@
+extends layout
+
+block styles
+  link(rel='stylesheet', href='css/home.css')
+
+block content
+  .banner#banner
+    canvas#banner-canvas
+    h1 ¡Bienvenido, #{user.email.split('@')[0]}!
+    a.ui.tiny.button(href='/logout') Cerrar Sesión
+
+  .ui.main.container
+    h1.ui.centered.header
+      img.ui.image(src='img/school.png')
+      .content Elige un tema de tu interés
+  .ui.main.container
+    .ui.equal.width.grid
+      .column
+        h2.ui.header
+          img.ui.bordered.circular.image(src='img/equation-math1.svg')
+          .content Matemáticas II
+      .column
+        .ui.middle.aligned.relaxed.animated.divided.list
+          .item
+            img.ui.avatar.image(src='img/triangle_right.png')
+            .content
+              a.header(href='/math1-trig') Trigonometría
+          .item
+            p Dos
+          .item
+            p Tres
+    .ui.divider
+    h2.ui.header
+      img.ui.bordered.circular.image(src='img/equation-math2.svg')
+      .content Matemáticas II
+    .ui.divider
+    h2.ui.header
+      img.ui.bordered.circular.image(src='img/equation-math3.svg')
+      .content Matemáticas III
+    .ui.divider
+    h2.ui.header
+      img.ui.bordered.circular.image(src='img/equation-math4.svg')
+      .content Matemáticas IV
+  .ui.main.container
+    h1.ui.centered.header
+      img.ui.image(src='img/school.png')
+      .content Reta tu razonamiento
+  .ui.main.container
+    .ui.equal.width.grid
+      .column
+        h2.ui.header
+          img.ui.bordered.circular.image(src='img/triangle_right.png')
+          .content Geometría
+      .column
+        .ui.middle.aligned.relaxed.animated.divided.list
+          .item
+            img.ui.avatar.image(src='img/parallel-lines.png')
+            .content
+              a.header(href='/two-parallel-lines') Dos líneas paralelas
+          .item
+            p Dos
+          .item
+            p Tres
+  .ui.main.container
+    h1.ui.centered.header
+      img.ui.image(src='img/school.png')
+      .content Explora aventuras matemáticas
+  .ui.main.container
+    .ui.equal.width.grid
+      .column
+        h2.ui.header
+          img.ui.bordered.circular.image(src='img/triangle_right.png')
+          .content Geometría
+      .column
+        .ui.middle.aligned.relaxed.animated.divided.list
+          .item
+            img.ui.avatar.image(src='img/circle-triangle.png')
+            .content
+              a.header(href='/fake-circles') Círculos falsos
+          .item
+            p Dos
+          .item
+            p Tres
+  include footer
+
+block scripts
+  script(src='js/delaunay.js')
+  script(src='js/banner.js')
